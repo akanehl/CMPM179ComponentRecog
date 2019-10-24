@@ -399,3 +399,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286a3feeadb0768448bb33470908cb2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filePath: D:\Aaron\Portfolio\Unity\CMPM179ComponentRecog\CMPM179ComponentRecogUnity\Assets
