@@ -2,13 +2,13 @@ import cv2
 import numpy as np
 
 min_threshold = 10                      # these values are used to filter our detector.
-max_threshold = 200                     # they can be tweaked depending on the camera distance, camera angle, ...
-min_area = 100                          # ... focus, brightness, etc.
+max_threshold = 200                  # they can be tweaked depending on the camera distance, camera angle, ...
+min_area = 10                       # ... focus, brightness, etc.
 min_circularity = .3
 min_inertia_ratio = .5
  
-cap = cv2.VideoCapture(0)               # '0' is the webcam's ID. usually it is 0 or 1. 'cap' is the video object.
-cap.set(15, -4)                         # '15' references video's brightness. '-4' sets the brightness.
+cap = cv2.VideoCapture(1)               # '0' is the webcam's ID. usually it is 0 or 1. 'cap' is the video object. 0 for comp webcam, 1 for USB 
+cap.set(15, -2)                         # '15' references video's brightness. '-4' sets the brightness.
  
 counter = 0                             # script will use a counter to handle FPS.
 readings = [0, 0]                       # lists are used to track the number of pips.
