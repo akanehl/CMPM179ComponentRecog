@@ -31,10 +31,20 @@ while isTraing:
 #################      Now finding Contours         ###################
 
     contours,hierarchy = cv2.findContours(thresh,cv2.RETR_LIST,cv2.CHAIN_APPROX_SIMPLE)
+    existingRectanglesX = []
+    existingRectanglesY = []
 
     for cnt in contours:
         if cv2.contourArea(cnt)>500:
-            [x,y,w,h] = cv2.boundingRect(cnt)
+            if len(existingRectanglesX) == 0 and len(existingRectanglesY) == 0:
+                [x,y,w,h] = cv2.boundingRect(cnt)
+            
+            for i in existingRectanglesX:
+                for j in existingRectanglesY:
+                    if x < i < w and y < j < h:
+                        continue
+                    else:
+                        [x,y,w,h] = cv2.boundingRect(cnt)
 
             if  h>28:
                 cv2.rectangle(im,(x,y),(x+w,y+h),(0,0,255),2)

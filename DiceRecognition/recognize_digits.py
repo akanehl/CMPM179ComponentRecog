@@ -45,8 +45,10 @@ while True:
                     roismall = roismall.reshape((1,100))
                     roismall = np.float32(roismall)
                     retval, results, neigh_resp, dists = model.findNearest(roismall, k = 1)
-                    string = str(int((results[0][0])))
-                    cv2.putText(out,string,(x,y+h),0,1,(0,255,0))
+                    string = str(int((results[0][0]))) #the result parsed to a string to output an image
+                    #cv2.putText(out,string,(x,y+h),0,1,(0,255,0)) the original image result output method
+                    readNum = int(string) #revert the result back into an int to display to console and to have a tangible number to work with
+                    print(readNum)
 
         cv2.imshow('im',im)
         cv2.imshow('thresh',thresh)
